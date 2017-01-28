@@ -46,9 +46,6 @@ require('get_data.php');
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script>
-//g_before_url = "https://pc2.tfcis.org/sky/index.php/contest/api/bangkok_results_before?cont_id=2";
-//g_before_url = <?=json_encode(file_read('before.json'))?>;
-//g_final_url =  <?=json_encode(file_read('before.json'))?>;
 g_before_url = "<?=$siteroot.$classn.'/'.$contestn.'/'?>resolver_before.json";
 g_final_url =  "<?=$siteroot.$classn.'/'.$contestn.'/'?>resolver_final.json";
 </script>
