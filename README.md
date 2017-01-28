@@ -5,11 +5,15 @@
 
 ### 步驟:
 1. 複製```config.example.php```到同目錄，命名為```config.php```
-2. 將scoreboard的data放到resolver目錄底下
-3. 修改```config.php```
-4. 用bash執行```output_to_resolver.php```
-5. 開啟瀏覽器，網址:```[host]/resolver/index.php/[class]/[contest]```
-6. 按空白鍵便會開始resolver
+2. 將cms的rank data放到resolver目錄底下
+3. 在cms的rank data目錄底下新增一個資料夾，命名為想要的contest名稱(此名稱將在```config.php```中設定)
+4. 將```cms/contest/contest.json```放入3中新增的資料夾，並設定好比賽名稱
+5. 將原cms的資料放入3中新增的資料夾
+6. 修改```config.php```
+7. 用bash執行```cms_to_scoreboard.php```(丟出的訊息可忽略)
+8. 用bash執行```output_to_resolver.php```
+9. 開啟瀏覽器，網址:```[host]/resolver/index.php/[class]/[contest]```
+10. 按空白鍵便會開始resolver
 
 ### config.php設定
 

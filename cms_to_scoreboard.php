@@ -1,5 +1,6 @@
 <?php
 require("File.php");
+require("config.php");
 
 function find_user($list,$name){
 	foreach($list as $u){
@@ -20,8 +21,8 @@ function find_problem($list,$pname){
 	return -1;
 }
 
-$name = "tfcis_final";
-$contest_name = "contest";
+$name = $_config['class'];
+$contest_name = $_config['contest'];
 $dir = $name.'/'.$contest_name.'/';
 $subchange_list = glob($dir.'subchanges/*.json');
 $problem_list = glob($dir.'tasks/*.json');
