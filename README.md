@@ -2,6 +2,7 @@
 
 ## 使用說明:
 - 配合 [scoreboard](https://github.com/lys0829/scoreboard_api) 使用
+
 ### 步驟:
 1. 複製```config.example.php```到同目錄，命名為```config.php```
 2. 將scoreboard的data放到resolver目錄底下
