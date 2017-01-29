@@ -46,8 +46,8 @@ require('get_data.php');
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script>
-g_before_url = "<?=$siteroot.$classn.'/'.$contestn.'/'?>resolver_before.json";
-g_final_url =  "<?=$siteroot.$classn.'/'.$contestn.'/'?>resolver_final.json";
+g_before_url = "<?=$siteroot.$classn.'/'.$contestn.'/'?>resolver_before.json?<?=time()?>";
+g_final_url =  "<?=$siteroot.$classn.'/'.$contestn.'/'?>resolver_final.json?<?=time()?>";
 </script>
 <script src="<?=$siteroot?>handlebars.min.js"></script>
 <script src="<?=$siteroot?>resolver.js"></script>

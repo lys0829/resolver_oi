@@ -25,7 +25,6 @@ var currentResolvingRank = -1;
 //solved is means score in oi contest also at now
 
 $(function () {
-	$.ajaxSetup({ cache: false });
 
 	$(window).scroll(function(){
 		$('.scoreboard-head').css('left', 0 - $(this).scrollLeft());
