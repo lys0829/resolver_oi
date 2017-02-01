@@ -36,8 +36,10 @@ $uid = 0;
 foreach($user_list as $u){
 	$user_list_output[$uid] = new stdclass();
 	$user = "";
-	$user = reset(explode('.',$u));
-	$user = end(explode('/',$user));
+	$user = explode('.',$u);
+	$user = reset($user);
+	$user = explode('/',$user);
+	$user = end($user);
 	$user_list_output[$uid]->user = $user;
 	//echo $user;
 	$u = json_decode(file_read($u));
