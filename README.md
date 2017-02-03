@@ -15,6 +15,7 @@
 
 OPTION | 說明
 ---|---
+$_config['sitedir'] |網站目錄名稱(***前後記得加```/```*** e.x:```/resolver/```)
 $_config['class'] |class的名稱(也就是scoreboard data資料夾的名稱)
 $_config['contest'] |contest的名稱(一個class可放入多個contest)
 $_config['start_time'] |競賽開始時間，此時間會決定記分板的計算(UNIX time)

@@ -1,4 +1,5 @@
 <?php
+$_config['sitedir'] = '';
 $_config['class'] = '';
 $_config['contest'] = '';
 $_config['start_time'] = ; //unix time
