@@ -43,7 +43,7 @@ foreach($user_list as $u){
 	$user_list_output[$uid]->user = $user;
 	//echo $user;
 	$u = json_decode(file_read($u));
-	$user_list_output[$uid]->name = $u->l_name;
+	$user_list_output[$uid]->name = $u->f_name .'_'. $u->l_name;
 	$user_list_output[$uid]->id = $uid;
 	$uid++;
 }
