@@ -1,7 +1,8 @@
 <?php
-$siteport = '80';
-$sitedir = '/scoreboard2/';
-$siteroot = '//'.$_SERVER['SERVER_NAME'].':'.$siteport.$sitedir;
+require('config.php');
+$siteport = $_config['siteport'];
+$sitedir = $_config['sitedir'];
+$siteroot = '//'.$_SERVER['SERVER_NAME'].$sitedir;
 
 $QUEST = '';
 if (isset($_SERVER['PATH_INFO'])) {
