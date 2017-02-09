@@ -6,11 +6,10 @@
  *$info->class_name
  *$info->contest_name
  **/
+require('output_to_resolver.php');
 require('get_data.php');
-$dir = $classn.'/'.$contestn; 
-$contest = json_decode(file_read($dir.'/contest.json'));
+
 $problem_list = $contest->problem;
-$user_list = json_decode(file_read($dir.'/userlist.json'));
 
 if(isset($_POST['change'])){
     $info = json_decode($_POST['change']);
@@ -30,12 +29,9 @@ if(isset($_POST['change'])){
         $rpid++;
     }
     if($info->pid==-1)exit('no problem');
-    if($info->change_score>$user_list[$info->uid]->score[$info->pid]){
-		$user_list[$info->uid]->score[$info->pid] = (int)$info->change_score;
-	}
     
     $sublist = [];
-    $sublist = json_decode(file_read($dir.'/submission_list.json'));
+    $sublist = json_decode(file_read($dir.'submission_list.json'));
     $sid = 0;
     if(count($sublist)>0)$sid = sublist[count($sublist)-1]->id+1;
     //$info = json_decode($_POST['change']);
@@ -46,7 +42,17 @@ if(isset($_POST['change'])){
     $sublist_add->pid = $info->pid;
     $sublist_add->score = $info->change_score;
     $sublist[count($sublist)] = $sublist_add;
-    file_create($dir.'/submission_list.json',json_encode($sublist));
-    //file_create($classn.'/userlist.json',json_encode($user_list_save));
+    file_create($dir.'submission_list.json',json_encode($sublist));
+	
+	$f = calculate_result(
+		$_config['class'],
+		$_config['contest'],
+		$_config['start_time'],
+		$_config['end_time']);
+		
+	file_create($dir.'resolver_final.json',json_encode($f));
+	if($sublist_add->time_update < $_config['freeze_time']){
+		file_create($dir.'resolver_before.json',json_encode($f));
+	}
     exit('SUCC');
 }
