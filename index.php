@@ -1,5 +1,4 @@
 <?php
-require('File.php');
 require('get_data.php');
 ?>
 <head>
@@ -46,8 +45,17 @@ require('get_data.php');
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script>
+result_version = 0;
+scoreboardUpdateTime = <?=$_config['scoreboard_update_time']?>;
 g_before_url = "<?=$siteroot.$classn.'/'.$contestn.'/'?>resolver_before.json?<?=time()?>";
+<?php if($mod=='admin'){ ?>
+g_before_url = "<?=$siteroot.$classn.'/'.$contestn.'/'?>resolver_final.json?<?=time()?>";
+<?php } ?>
 g_final_url =  "<?=$siteroot.$classn.'/'.$contestn.'/'?>resolver_final.json?<?=time()?>";
 </script>
 <script src="<?=$siteroot?>handlebars.min.js"></script>
+<?php if($mod=='resolver' && time()>$_config['end_time']){ ?>
 <script src="<?=$siteroot?>resolver.js"></script>
+<?php } else {?>
+<script src="<?=$siteroot?>live.js"></script>
+<?php } ?>

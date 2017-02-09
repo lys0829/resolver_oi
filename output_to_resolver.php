@@ -1,7 +1,7 @@
 <?php
 //$class_name = '2016101';
 //$contest_name = 'exam';
-require('File.php');
+require_once('File.php');
 require('config.php');
 
 function find_user($list,$id){
@@ -107,8 +107,4 @@ function calculate_result($class_name,$contest_name,$start_time,$end_time){
 	return $results;
 }
 
-$f = calculate_result($_config['class'],$_config['contest'],$_config['start_time'],$_config['end_time']);
-$b = calculate_result($_config['class'],$_config['contest'],$_config['start_time'],$_config['freeze_time']);
-file_create($_config['class'].'/'.$_config['contest'].'/resolver_before.json',json_encode($b));
-file_create($_config['class'].'/'.$_config['contest'].'/resolver_final.json',json_encode($f));
 ?>
