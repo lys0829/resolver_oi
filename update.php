@@ -33,7 +33,8 @@ if(isset($_POST['change'])){
     $sublist = [];
     $sublist = json_decode(file_read($dir.'submission_list.json'));
     $sid = 0;
-    if(count($sublist)>0)$sid = sublist[count($sublist)-1]->id+1;
+	$sublists = count($sublist);
+    if($sublists>0)$sid = $sublist[$sublists-1]->id+1;
     //$info = json_decode($_POST['change']);
     $sublist_add = new stdclass();
     $sublist_add->id = $sid;
