@@ -22,10 +22,13 @@ if(isset($_POST['change'])){
     $rpid = 0;
     $info->pid = -1;
     foreach($problem_list as $pro){
-        if($pro->vpl_id == $info->vpl_id){
-            $info->pid = $rpid;
-            break;
-        }
+		foreach($pro->vpl_id as $pro_pid){
+			if($pro_pid == $info->vpl_id){
+				$info->pid = $rpid;
+				break;
+			}
+		}
+        if($rpid!=-1)break;
         $rpid++;
     }
     if($info->pid==-1)exit('no problem');
