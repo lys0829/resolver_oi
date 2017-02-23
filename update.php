@@ -28,7 +28,7 @@ if(isset($_POST['change'])){
 				break;
 			}
 		}
-        if($rpid!=-1)break;
+        if($info->pid!=-1)break;
         $rpid++;
     }
     if($info->pid==-1)exit('no problem');
