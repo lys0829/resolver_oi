@@ -212,13 +212,6 @@ body {
   background-color: #99c5ff;
   color: #333;
 }
-.scoreboard .scoreboard-first {
-  background-color: #ffc20a;
-  color: #805400;
-  font-weight: bold;
-  box-shadow: 0px 0px 20px #ffc20a;
-  z-index: 900;
-}
 .scoreboard .scoreboard-summary {
   text-align: right;
 }
@@ -293,4 +286,11 @@ body {
 .scoreboard .score_100 {
     background-color: #4E9A05;
     /*background-image: linear-gradient(rgb(115, 210, 22), rgb(78, 154, 5));*/
+}
+.scoreboard .scoreboard-first {
+  background-color: #ffc20a;
+  color: #805400;
+  font-weight: bold;
+  box-shadow: 0px 0px 20px #ffc20a;
+  z-index: 900;
 }

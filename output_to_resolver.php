@@ -37,6 +37,8 @@ function calculate_result($class_name,$contest_name,$start_time,$end_time){
 		$results->problems->$pn = new stdclass();
 		$results->problems->$pn->score = $problem->grade;
 		$results->problems->$pn->pid = $pid;
+		$results->problems->$pn->maxscore = 0;
+		$results->problems->$pn->first_user = -1;
 		$pid++;
 	}
 	
@@ -85,7 +87,21 @@ function calculate_result($class_name,$contest_name,$start_time,$end_time){
 				$results->points-=$results->scoreboard[$uid]->$pn->t;
 				$results->scoreboard[$uid]->$pn->t = (int)(($submission->time_update-$start_time)/60);
 				$results->points+=$results->scoreboard[$uid]->$pn->t;
+				
+				if($results->scoreboard[$uid]->$pn->score > $results->problems->$pn->maxscore){
+					$results->problems->$pn->maxscore = $results->scoreboard[$uid]->$pn->score;
+					$results->problems->$pn->first_user = $uid;
+				}
 			}
+		}
+	}
+	
+	//=====set first=====//
+	foreach($problems as $problem){
+		$pn = $problem->name;
+		if($results->problems->$pn->first_user != -1){
+			$uid = $results->problems->$pn->first_user;
+			$results->scoreboard[$uid]->$pn->s = 'first';
 		}
 	}
 	return $results;
